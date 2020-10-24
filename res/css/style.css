@@ -97,6 +97,7 @@ nav div.search-container > input {
     margin: 0;
     padding: 5px;
     border: 1px solid #e0e0e0;
+    
 }
 
 nav div.search-container > button {
@@ -106,11 +107,13 @@ nav div.search-container > button {
     padding: 5px;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    
 }
 
 nav div.avatar-container {
     margin-right: 15px;
     text-align: right;
+    
 }
 
 .main-container {
@@ -202,3 +205,34 @@ nav div.avatar-container {
 .like-button.liked {
     background-color: #01579b;
 }
+
+.dropdown-menu{
+    display: none;
+    position: absolute;
+    width:250px;
+    right:0px;
+    top:34px;
+    
+ }
+
+ .avatar-container ul li {
+     display: block;
+     
+ }
+
+ .avatar-container p{
+    text-align: left;
+    font-style:
+    text-decoration: none;
+    background-color: white;
+    color: #333;
+    font-family: 'Roboto Slab', serif;
+    padding: 5px;
+    margin: 0px;
+    font-size: 19px;
+ }
+
+#bordered {
+     border-top:1px solid lightgray;
+ }
+ 
