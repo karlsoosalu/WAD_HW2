@@ -1,4 +1,5 @@
 let posts = [];
+let userData = [];
 
 $(function(){
     loadPosts().then(function (response) {
@@ -10,7 +11,32 @@ $(function(){
     .catch(function(){
         alert("Error appeared when displaying posts")
     })
+
+    loadUser().then(function (response) {
+        userData.push(response.firstname)
+        userData.push(response.lastname)
+        userData.push(response.email)
+        userData.push(response.avatar)
+        displayUser()
+    })
+    .catch(function(){
+        alert("Error appeared when displaying users")
+    })
 })
+
+function loadUser() {
+    return $.get(
+        {
+            url: 'https://private-anon-c899c1dc63-wad20postit.apiary-mock.com/users/1',
+            success: function (response) {
+                return response;
+            },
+            error: function () {
+                alert('Error appeared when loading users')
+            }
+        }
+    );
+}
 
 function loadPosts() {
     return $.get(
@@ -81,3 +107,31 @@ function displayPosts() {
         $('section.main-container').append(div_post);
     }
 }
+
+function displayUser(){
+    let firstName = userData[0]
+    let lastName = userData[1]
+    let email = userData[2]
+    let avatar_link = userData[3]
+    
+    $("p#menuName").text(firstName + ' ' + lastName)
+    $("p#menuEmail").text(email)
+    console.log(avatar_link)
+    $("img.avatar").attr("src",avatar_link)
+}
+
+var isMenuShown = false;
+
+$(document).ready(function(){
+    $(".avatar").click(function(){
+        if(isMenuShown==false){
+            $(".dropdown-menu").slideDown(0);
+            isMenuShown=true;
+        } else {
+            $(".dropdown-menu").stop().slideUp(0);
+            isMenuShown=false;
+        }    
+    });    
+})
+
+
