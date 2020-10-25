@@ -1,4 +1,4 @@
-class Post{
+class Post {
     constructor(author, createTime, text, media, likes) {
         this.author = author;
         this.createTime = createTime;
